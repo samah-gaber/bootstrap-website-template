@@ -1,0 +1,46 @@
+// font
+@mixin fontFace($fontFamily, $src){
+	@font-face{
+		font-family: $fontFamily;
+		src: url($src);
+	}
+}
+// text style
+@mixin text($fontFamily, $fontSize, $color){
+	font-family: $fontFamily;
+	font-size: $fontSize;
+	color: $color;
+	line-height: $fontSize * 1.618;
+}
+// background image
+@mixin bgImg($bgImg, $bgRepeat, $bgSize, $bgPosition, $bgAttach){
+	background-image: url($bgImg);
+	background-repeat: $bgRepeat;
+	background-size: $bgSize;
+	background-position: $bgPosition;
+	background-attachment: $bgAttach;
+}
+// section headers style
+@mixin secHeader(){
+    @each $id in $secId {
+        ##{$id} {
+            @extend %secHeaderStyle;
+        }
+    }
+}
+// what people say section
+@mixin whatPeopleSaySecImgs(){
+    @each $img in $whatPeopleSaySecImgs {
+        .#{$img} {
+            @include bgImg("../imgs/#{$img}.jpg", no-repeat, cover, center, scroll);
+        }
+    }
+}
+// footer section
+@mixin footerInstaImgs(){
+    @each $img in $footerInstaImgs {
+        .#{$img} {
+            @include bgImg("../imgs/#{$img}.jpg", no-repeat, cover, center, scroll);
+        }
+    }
+}

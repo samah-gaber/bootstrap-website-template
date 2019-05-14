@@ -1,0 +1,535 @@
+// fonts
+@include fontFace($RobotoRegular, "../fonts/Roboto-Regular.ttf");
+@include fontFace($RobotoLightItalic, "../fonts/Roboto-LightItalic.ttf");
+@include fontFace($MontserratBold, "../fonts/Montserrat-Bold.ttf");
+@include fontFace($MontserratRegular, "../fonts/Montserrat-Regular.ttf");
+@include fontFace($KaushanScriptRegular, "../fonts/KaushanScript-Regular.otf");
+// general layout
+html {
+	font-size: $rootFontSize;
+}
+// sections headers
+@include secHeader();
+// overlays
+.overlay {
+	@extend %overlay;
+}
+.white-overlay {
+	@extend %whiteOverlay;
+}
+.gradient-overlay {
+	@extend %gradientOverlay;
+}
+.navbar-brand {
+	@extend %txt-mont-b-30-white;
+	&:hover {
+		color: $whiteColor;
+	}
+	&:active {
+		transform: scale(1.25);
+	}
+}
+nav {
+	padding: 8rem 0;
+	button i {
+		font-size: 2.5rem;
+		color: $whiteColor;
+	}
+	background-color: $extraColor;
+}
+// header ssection
+#main-navigation {
+	li {
+		margin-right: 5.5rem;
+		border-bottom: 1px solid transparent;
+		a {
+			@extend %txt-mont-reg-14-white;
+			padding: 0;
+		}
+		&:hover {
+			border-color: $extraColor2;
+			a {
+				color: $extraColor2;
+			}
+		}
+	}
+}
+	@media only screen and (max-width: 1024px){
+		#main-navigation {
+			ul {
+				background-color: rgba(255, 255, 255, 0.1);
+				width: 35%;
+				text-align: right;
+			}
+			li {
+				padding: 10px 0;
+				margin-right: 15px;
+				a {
+					font-size: 20px;
+				}
+				&:hover {
+					border-bottom: none;
+					a {
+						color: $extraColor2;
+					}
+				}
+			}
+		}
+	}
+.cart-search {
+	margin-left: auto;
+	margin-right: 3rem;
+	flex-direction: row;
+	li {
+		margin-right: 3rem;
+	}
+}
+main {
+	position: relative;
+	h1 {
+		@extend %txt-mont-b-140-white;
+		line-height: 14rem;
+		&::after {
+			content: " ";
+			display: inline-block;
+			margin: 7rem 0 5rem 0;
+			height: 0.3rem;
+			background-color: $whiteColor;
+			width: 6rem;
+		}
+	}
+	@media only screen and (min-width: 768px) and (max-width: 1024px) {
+		h1 {
+			font-size: 8rem;
+		}
+	}
+	@media only screen and (max-width: 768px) {
+		margin-top: 6.4rem;
+		h1 {
+			font-size: 3rem;
+			line-height: 4rem;
+			&::after {
+				margin: 0;
+			}
+		}
+		p {
+			font-size: 2.4rem;
+			line-height: 4rem;
+			margin-bottom: 0 !important;
+		}
+		button {
+			font-size: 1.2rem !important;
+			padding: 0.5rem 1rem !important;
+		}
+	}
+	p {
+		@extend %txt-kaush-reg-72-white;
+		margin-bottom: 4rem;
+	}
+	.button {
+		color: $whiteColor;
+		border: 1px solid $whiteColor;
+		background-color: transparent;
+		padding: 1.2rem 3rem;
+		@extend %txt-mont-bold-14-white;
+		outline: none;
+	}
+	.button:active {
+		background-color: $whiteColor;
+		color: #d49a6d;
+	}
+	.text-content {
+		position: absolute;
+		top: 10%;
+
+	}
+}
+// story about us section
+#story-about-us {
+	@media only screen and (max-width: 1024px) {
+		.image {
+			margin-bottom: 4rem;
+			img {
+				width: 100%;
+			}
+			
+			}
+		}
+	.image {
+		@extend %hoverLayoutAnimated;
+	}
+	.gradient-overlay {
+		width: calc(100% - 30px);
+		margin-left: 15px;
+		.overlay-text {
+			position: absolute;
+			top: 37%;
+			left: 34%;
+		}
+		i {
+			font-size: 1.8rem;
+			color: $whiteColor;
+			margin-bottom: 1rem;
+		}
+		p {
+			@extend %txt-mont-b-18-white;
+		}
+	}
+}
+// statistics section
+#statistics {
+	background-color: $primaryColor;
+	.num {
+       	@extend %txt-mont-b-72-white;
+        margin-bottom: 3rem;
+    }
+    .label {
+       @extend %txt-mont-reg-14-white;
+	}
+	.row div {
+		padding: 9rem 0;
+		border-left: 1px solid $borderColor;
+		@media only screen and (max-width: 768px) {
+			padding: 0;
+		}
+	}
+	.row div:last-child {
+		border-right: 1px solid $borderColor;
+	}
+	@media only screen and (max-width: 768px) {
+		.row div {
+			border: none;
+		}
+		.row div:last-child {
+			border-right: none;
+		}
+	}
+}
+// statistics section media query
+@media only screen and (min-width: 1200px) {
+	.col-xxl-2 {
+		min-width: 20%;
+	}
+}
+// amazing services section
+#amazing-services {
+	@extend %amazingServices;
+	div.w-100 {
+		margin: 5rem 0;
+		border-color: $borderColor;
+	}
+	@media only screen and (max-width: 1024px) {
+		div.w-100 {
+			display: none;
+		}
+		.media-card {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			margin-bottom: 3rem;
+		}
+		img {
+			margin-bottom: 2rem;
+		}
+	}
+}
+// unique design section
+#unique-design {
+	@include bgImg($uniqueDesignImg, no-repeat, cover, center, fixed);
+	position: relative;
+	z-index: 1;
+	padding-bottom: 0;
+	.mob-img {
+		position: relative;
+	}
+	img[alt="mobile image 2"] {
+		position: absolute;
+		left: 62%;
+		top: 39%;
+	}
+	@media only screen and (max-width: 1024px) {
+		img[alt="mobile image 2"] {
+			display: none;
+		}
+	}
+}
+// what we do section
+#what-we-do {
+	.card {
+		border-color: $borderColor;
+		.card-header {
+			padding: 1.5rem;
+			background-color: transparent;
+		}
+		i {
+			color: $primaryColor;
+			font-size: 2.5rem;
+			margin-left: 1.5rem;
+		}
+		button {
+			@extend %txt-mont-reg-14-dark;
+			padding-left: 1.5rem;
+		}
+		.card-body {
+			@extend %txt-rob-li-it-15-light;
+		}
+	}
+}
+// quotes first section
+.quotes {
+	background-color: $bgLightColor;
+	.carousel-control-prev {
+		left: -145px;
+	}
+	.carousel-control-next {
+		right: -145px;
+	}
+	i {
+		color: $textColor;
+		font-size: 3rem;
+	}
+	.quote {
+		@extend %blockQuoteStyle;
+	}
+	@media only screen and (max-width: 1024px) {
+		.media {
+			flex-direction: column;
+			img , .img {
+				margin-bottom: 4rem;
+			}
+		}
+	}
+}
+#quotes-1 {
+	img {
+		padding: 4rem;
+		border: 0.2rem solid $primaryColor;
+	}
+}
+// meet our team section
+#meet-our-team {
+	.team-imgs {
+		.info {
+			margin-top: 3rem;
+		}
+		.name {
+			@extend %txt-mont-reg-14-dark;
+			margin-bottom: 1.5rem;
+		}
+		.title {
+			@extend %txt-rob-li-it-15-light;
+		}
+	}
+	.image {
+		@extend %hoverLayoutAnimated;
+		.overlay-text {
+			width: 54%;
+			position: absolute;
+			top: 43%;
+			left: 23%;
+			a {
+				background-color: $extraColor2;
+				padding: 1.5rem;
+				text-decoration: none;
+				border-right: 1px solid $extraColor;
+			}
+			i {
+				font-size: 1.8rem;
+				color: $extraColor;
+			}
+			i:last-child {
+				border: none;
+			}
+			a:hover {
+				background-color: $extraColor;
+				i {
+					color: $whiteColor;
+				}
+			}
+		}
+	}
+	@media only screen and (max-width: 1024px) {
+		img {
+			width: 100%;
+		}
+	}
+
+}
+// brands section
+#brands {
+	background-color: $bgLightColor;
+	padding: 6rem 0;
+	@media only screen and (max-width: 768px) {
+		.row div {
+			margin-bottom: 3rem;
+		}
+	}
+}
+// some of our works section
+#some-of-our-works {
+	.image {
+		@extend %hoverLayoutStatic;
+	}
+	img {
+		width: 100%;
+	}
+	padding-bottom: 0;
+	.overlay-text {
+		position: absolute;
+		top: 33%;
+		left: 26%;
+		i {
+			font-size: 1.4rem;
+			color: $whiteColor;
+			margin-bottom: 2rem;
+		}
+		p:nth-child(2) {
+			@extend %txt-mont-reg-14-white;
+			margin-bottom: 1.7rem;
+		}
+		p:last-child {
+			@extend %txt-rob-li-it-15-white;
+		}
+	}
+}
+// quotes second section
+#quotes-2 {
+	.img {
+		width: 21rem;
+		height: 21rem;
+		border-radius: 50%;
+		@include bgImg($quote2Img, no-repeat, cover, center, scroll);
+	}
+}
+// what people say section
+#what-people-say {
+	@include bgImg($whatPeopleSayImg, no-repeat, cover, center, fixed);
+	position: relative;
+	z-index: 1;
+	@include whatPeopleSaySecImgs();
+	.media {
+		@extend %whatPeopleSay;
+	}
+}
+// latest blog section
+#latest-blog {
+	.card {
+		@extend %latestBlog;
+	}
+	@media only screen and (min-width: 1024px) {
+		div.col-10 {
+			margin: 0 auto;
+		}
+		.date-lg {
+			position: absolute;
+			bottom: 5%;
+			left: -3%;
+		}
+	}
+	@media only screen and (max-width: 1024px) {
+		.card {
+			margin-bottom: 3rem;
+		}
+		.date-sm-md {
+			position: absolute;
+			top: 0%;
+			left: 0%;
+		}
+	}
+}
+// footer section
+footer {
+	background-color: $bgLightColor;
+	padding: 7.5rem 0 2.4rem;
+	.row {
+		margin-bottom: 7rem;
+	}
+	.card {
+		border: none;
+		background-color: transparent;
+		margin-bottom: 0;
+	}
+	.card-title {
+		@extend %txt-mont-b-46-light;
+		margin-bottom: 4rem;
+	}
+	.card-text {
+		@extend %txt-rob-reg-15-light;
+		margin-bottom: 5rem;
+	}
+	small {
+		@extend %txt-mont-reg-14-light;
+		margin-bottom: 2rem;
+		span {
+			@extend %txt-mont-b-18-dark;
+		}
+	}
+	.card-footer {
+		background-color: transparent;
+		padding: 1.5rem 0 0 0;
+		span {
+			@extend %txt-rob-li-it-15-light;
+			margin-right: 1rem;
+		}
+		i {
+			color: $primaryColor;
+			font-size: 1.5rem;
+			margin-right: 1rem;
+		}
+	}
+	.title {
+		@extend %txt-mont-reg-14-dark;
+		margin-bottom: 4rem;
+	}
+	.form-group {
+		label {
+			@extend %txt-mont-reg-12-light;
+			margin-bottom: 1rem;
+		}
+		::placeholder {
+			@extend %txt-rob-li-it-13-light;
+		}
+		input {
+			margin-bottom: 3rem;
+			height: 4rem;
+		}
+		
+	}
+	form {
+		button[type=submit] {
+			background-color: $primaryColor;
+			// color: $whiteColor;
+			@extend %txt-mont-reg-14-white;
+		}
+	}
+	.insta-imgs-sec {
+		@include footerInstaImgs();
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		column-gap: 0.2rem;
+		row-gap: 0.2rem;
+		margin-bottom: 1.8rem;
+		.insta-img {
+			width: 8.8rem;
+			height: 8.8rem;
+		}
+		& + p {
+			@extend %txt-rob-li-it-13-light;
+		}
+	}
+	.copy-rights {
+		padding: 2.4rem 0 0 0;
+		p {
+			@extend %txt-mont-reg-14-dark;
+		}
+		span {
+			color: $extraColor;
+		}
+	}
+	@media only screen and (max-width: 1024px) {
+		.row > div {
+			margin-bottom: 3rem;
+		}
+	}
+}
